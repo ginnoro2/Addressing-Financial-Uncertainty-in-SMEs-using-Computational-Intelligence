@@ -1,0 +1,9 @@
+task,model,metric_primary,score,F1,ROC_AUC
+Financial Stress Classification,Logistic Regression,Accuracy (LOO),0.6666666666666666,0.8,0.625
+Financial Stress Classification,Random Forest,Accuracy (LOO),0.8333333333333334,0.8888888888888888,0.5
+Financial Stress Classification,Gradient Boosting,Accuracy (LOO),0.6666666666666666,0.8,0.75
+Financial Stress Classification,XGBoost,Accuracy (LOO),0.6666666666666666,0.8,0.0
+Daily Sales Forecasting,Linear Regression,R2 (holdout),-0.750561706897791,,
+Daily Sales Forecasting,Ridge,R2 (holdout),-0.6983175657821086,,
+Daily Sales Forecasting,Random Forest Regressor,R2 (holdout),0.0292444260333814,,
+Daily Sales Forecasting,XGBoost Regressor,R2 (holdout),0.020393954733375352,,
