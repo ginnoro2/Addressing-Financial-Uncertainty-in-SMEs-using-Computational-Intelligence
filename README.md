@@ -92,14 +92,14 @@ MSC/
 │   ├── vector_store.py      ← ChromaDB + MiniLM embeddings (lazy-loaded)
 │   └── pdf_loader.py        ← Research proposal PDF → chunks
 │
-├── Data/
-│   ├── Emilio's Monthly Report - Jan 2026_1.xlsx
-│   ├── Emilio's Monthly Report - Feb 2026.xlsx
-│   ├── Emilio's Monthly Report - March 2026.xlsx
-│   ├── Emilio's Monthly Report - April 2026.xlsx
-│   ├── Emilio's Monthly Report - May 2026.xlsx
-│   ├── Emilio's Monthly Report - Jun 2026_1.xlsx
-│   └── research_summary.md
+├── Data/ Monthly Report 
+│   ├── - Jan 2026_1.xlsx
+│   ├── - Feb 2026.xlsx
+│   ├── - March 2026.xlsx
+│   ├── - April 2026.xlsx
+│   ├── - May 2026.xlsx
+│   ├── - Jun 2026_1.xlsx
+│
 │
 ├── processed/
 │   ├── feature_matrix.csv   ← Engineered monthly features (Jan–May 2026)
