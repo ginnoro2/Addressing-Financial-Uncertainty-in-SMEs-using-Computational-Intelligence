@@ -33,20 +33,20 @@ To design and evaluate a computational intelligence based financial intelligence
 
 ## Launch the Prototype
 
-### v2 Dashboard (Main — recommended)
+### v2 Dashboard 
 ```bash
 cd /Users/priyankarai/MSC
 ./run_dashboard.sh
 # Opens at http://localhost:8501
 ```
 
-### v2 RAG Assistant (separate UI)
+### v2 RAG Assistant 
 ```bash
 ./run_rag.sh
 # Opens at http://localhost:8501
 ```
 
-### Manual launch (if shell scripts don't work)
+### Manual launch 
 ```bash
 cd /Users/priyankarai/MSC
 source venv/bin/activate
@@ -100,41 +100,16 @@ MSC/
 │   ├── - May 2026.xlsx
 │   ├── - Jun 2026_1.xlsx
 │
-│
 ├── processed/
 │   ├── feature_matrix.csv   ← Engineered monthly features (Jan–May 2026)
 │   ├── monthly_pl.csv       ← P&L extracted features
 │   ├── daily_sales.csv      ← May 2026 daily sales (31 rows)
 │   └── model_comparison.csv ← ML model performance results
-│
-├── thesis_docs/
-│   ├── 14_Data_Exploration_Preprocessing/
-│   │   ├── 01_Data_Collection_and_Sources/     evidence/ figures/
-│   │   ├── 02_Data_Quality_Assessment/         evidence/
-│   │   ├── 03_Data_Cleaning_and_Transformation/evidence/
-│   │   ├── 04_Exploratory_Data_Analysis/       evidence/ figures/
-│   │   ├── 05_Feature_Engineering/             evidence/ figures/
-│   │   └── 06_Descriptive_Statistics/          evidence/ figures/
-│   └── 15_Model_Development_and_Implementation/
-│       ├── 01_Model_Selection_Rationale/       evidence/ figures/
-│       ├── 02_Training_and_Validation_Strategy/evidence/ figures/
-│       ├── 03_Hyperparameter_Tuning/           evidence/ figures/
-│       ├── 04_Feature_Importance_Analysis/     evidence/ figures/
-│       ├── 05_Model_Comparison/                evidence/ figures/
-│       └── 06_Technical_Challenges_and_Solutions/ evidence/ figures/
-│
-├── docs/
-│   ├── Justification_Objectives_RQ_Hypotheses.md   ← Full academic justification
-│   ├── RAG_Methodology.md                          ← RAG write-up (paste into thesis)
-│   └── Section14_15_Prototype.md                   ← Sections 14–15 companion notes
-│
 ├── scripts/
 │   ├── ingest.py            ← Rebuild RAG index (run after adding new files)
 │   └── query.py             ← CLI RAG query
 │
 ├── chroma_db/               ← Persistent vector index (auto-managed)
-├── generate_evidence.py     ← Regenerate all Section 14 figures
-├── generate_evidence_15.py  ← Regenerate all Section 15 figures
 └── requirements.txt
 ```
 
@@ -219,40 +194,6 @@ Wastage  Wastage   Wastage   Wastage   Wastage   Wastage
 ** Salary Details sheet present in May and Jun workbooks only
 C/D = Creditors + Debtors
 ```
-
----
-
-## Regenerate Evidence Figures
-
-Run these any time after pipeline changes:
-
-```bash
-source venv/bin/activate
-
-# Section 14 — Data Exploration & Preprocessing (60 figures)
-python generate_evidence.py
-
-# Section 15 — Model Development & Implementation (60 figures)
-python generate_evidence_15.py
-```
-
-Figures are saved to `thesis_docs/14_.../` and `thesis_docs/15_.../` in both `evidence/` and `figures/` sub-folders.
-
----
-
-## Rebuild RAG Index
-
-Run this after adding new data files or after the first install:
-
-```bash
-source venv/bin/activate
-python scripts/ingest.py --force
-```
-
-Or click **"Rebuild Index (force)"** in the sidebar of `app_v2.py`.
-
-The v2 index covers: research proposal PDF + all 6 monthly workbooks (Jan–Jun 2026) + `research_summary.md`.
-
 ---
 
 ## Ethical Framework (RQ2 / H2)
@@ -291,10 +232,6 @@ The prototype implements five design principles:
 python scripts/ingest.py --force
 python scripts/query.py "What were net sales in June 2026?"
 
-# Regenerate all evidence
-python generate_evidence.py
-python generate_evidence_15.py
-
 # Run inspection utilities
 python inspect_data.py      # Sheet names for all 6 files
 python inspect_data2.py     # P&L values, cash flow, wastage per month
@@ -331,8 +268,6 @@ python get_model_data.py    # Live model runs: importances, LOO folds
 | `src/vector_store.py` | Active | Lazy SentenceTransformer import |
 | `config.py` | Active | Append-only — never remove existing constants |
 
----
-
-*Case study: Emilio's Pizza Pvt. Ltd., Kathmandu / Pokhara (Bansbari, Lakeside, Nadipur branches)*  
+--- 
 *Data period: January – June 2026*  
 *Framework: Descriptive → Diagnostic → Predictive → Prescriptive → XAI → Prototype*
